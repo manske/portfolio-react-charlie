@@ -4,11 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open",
-    "build": "webpack --mode production",
+    "dev": "webpack-dev-server --mode development --open",
+    "start": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "heroku-run-build-script": true,
   "repository": {
     "type": "git",
     "url": "git+git@github.com:CoonJS/react-react-router-dom-simple-boilerplate.git"
