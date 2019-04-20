@@ -36,6 +36,14 @@ class Balls extends Component{
             shininess: 0,
             opacity: 1
         })
+
+        this.lessDarkMaterial = new THREE.MeshPhongMaterial({
+          color: 0x1de2ae,
+          emissive: 0x0,
+          specular: 0x0,
+          shininess: 0,
+          opacity: 1
+        })
           
         const _moreDarkMaterial = new THREE.MeshPhongMaterial({
             color: 0x3a3a3a,
@@ -222,6 +230,7 @@ class Balls extends Component{
 
                     //balls.bloop(balls.spheres[i], 0, balls.spheres[i].scale.y, 400, (0 * 200));
                 }
+
                 
                 balls.hello.material = balls.darkMaterial;
                 balls.createRigidBody(balls.hello, balls.createTriMeshShape(balls.hello_geo), 0)
@@ -595,36 +604,48 @@ class Balls extends Component{
                     console.log("1", threeObject1.name);
                     console.log("0", threeObject0.name);
 
-                    if ( threeObject0.name.indexOf("kittygirl") != -1 && !this.darkness) {
+                    if ( threeObject0.name.indexOf("kittygirl") != -1 ) {
                         if ( threeObject0.name == "ball" ||  threeObject1.name == "ball" ) {
                             //effectBottle();
                             //if (this.kittyState1 == false ) {
-                            threeObject0.material = this.darkMaterial;
-                                
-                            let kitty_name = threeObject0.name;
-                            if (kitty_name.indexOf("1") != -1 && this.kittyState[0] != 1) {
-                                this.kittyState[0] = 1;
-                            } else if (kitty_name.indexOf("2") != -1 && this.kittyState[1] != 1) {
-                                this.kittyState[1] = 1;
-                            } else if (kitty_name.indexOf("3") != -1 && this.kittyState[2] != 1) {
-                                this.kittyState[2] = 1;
-                            } else if (kitty_name.indexOf("4") != -1 && this.kittyState[3] != 1) {
-                                this.kittyState[3] = 1;
-                            } else if (kitty_name.indexOf("8") != -1 && this.kittyState[4] != 1) {
-                                this.kittyState[4] = 1;
-                            }
+                                if (true) {
+                                    console.log("Party") 
+                                    threeObject0.material = this.darkMaterial;
+                                    
+                                    let kitty_name = threeObject0.name;
+                                    if (kitty_name.indexOf("1") != -1 && this.kittyState[0] != 1) {
+                                        this.kittyState[0] = 1;
+                                    } else if (kitty_name.indexOf("2") != -1 && this.kittyState[1] != 1) {
+                                        this.kittyState[1] = 1;
+                                    } else if (kitty_name.indexOf("3") != -1 && this.kittyState[2] != 1) {
+                                        this.kittyState[2] = 1;
+                                    } else if (kitty_name.indexOf("4") != -1 && this.kittyState[3] != 1) {
+                                        this.kittyState[3] = 1;
+                                    } else if (kitty_name.indexOf("8") != -1 && this.kittyState[4] != 1) {
+                                        this.kittyState[4] = 1;
+                                    }
+                                    /*
+                                    if (this.arrSum(this.kittyState) == 5) {
+                                        if (!this.darkness) {
+                                            localStorage.setItem('mode', "dark");
+                                        } else {
+                                            localStorage.setItem('mode', "light");
+                                        }
+                                     
+                                        localStorage.setItem('dark_activated', "1");
+                                        window.location.reload();
+                                    }*/
+                                } else {
+                                    ballError(threeObject0, this.lessDarkMaterial, this.darkMaterial); 
+                                }
 
-
-                            console.log()
-                            
-                            if (this.arrSum(this.kittyState) == 5) {
-                                localStorage.setItem('mode', "dark");
-                                window.location.reload();
-                            }
+                                console.log(this.kittyState);
                            
-                            console.log(this.kittyState);
+                           
+
+
                         }
-                    } else if ( threeObject0.name.indexOf("deadbeef") != -1) {
+                    } else if ( threeObject0.name.indexOf("deadbeef") != -1 && threeObject0.name.indexOf("kittygirl") == -1 ) {
                         if ( threeObject0.name == "ball" ||  threeObject1.name == "ball" ) {
                             //if (!document.querySelector("body").classList.contains('darkmode')) darkMode();
                             //if (document.querySelector("body").classList.contains('darkmode')) darkMode();

@@ -25,6 +25,34 @@ viewBox="0 0 88.9 19.8" style="enable-background:new 0 0 88.9 19.8;" xml:space="
 </svg>
 `;
 
+const svgDarkLight = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 18">
+<path class="kitty__mode light" d="M1.67,9A4.7,4.7,0,0,1,3.72,5.1.4.4,0,0,1,4,5c.08,0,.11.21.11.31a4.73,4.73,0,0,0,5.09,5.05,9.77,9.77,0,0,0,1.28-.28c.1,0,.26,0,.31,0a.37.37,0,0,1,0,.31A4.55,4.55,0,0,1,7.26,13.6a4.69,4.69,0,0,1-5.54-4A4.46,4.46,0,0,1,1.67,9Z"/>
+<path class="dark__divider" d="M14.5,16.5A.5.5,0,0,1,14,16V2a.5.5,0,0,1,1,0V16A.5.5,0,0,1,14.5,16.5Z"/>
+<g class="kitty__mode dark">
+<circle cx="23.5" cy="9.5" r="2.5"/><rect x="18.5" y="8.5" width="1" height="2" rx="0.41" ry="0.41" transform="translate(28.5 -9.5) rotate(90)"/><rect x="20.11" y="11.39" width="1" height="2" rx="0.41" ry="0.41" transform="translate(14.8 -10.95) rotate(45)"/><rect x="23" y="13" width="1" height="2" rx="0.41" ry="0.41"/><rect x="25.89" y="11.39" width="1" height="2" rx="0.41" ry="0.41" transform="translate(-1.03 22.29) rotate(-45)"/><rect x="27.5" y="8.5" width="1" height="2" rx="0.41" ry="0.41" transform="translate(18.5 37.5) rotate(-90)"/><rect x="25.89" y="5.61" width="1" height="2" rx="0.41" ry="0.41" transform="translate(40.37 29.95) rotate(-135)"/><rect x="23" y="4" width="1" height="2" rx="0.41" ry="0.41" transform="translate(47 10) rotate(180)"/><rect x="20.11" y="5.61" width="1" height="2" rx="0.41" ry="0.41" transform="translate(39.86 -3.29) rotate(135)"/>
+</g>
+</svg>`
+
+
+const svgDark = `<svg class=" " data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 13"><title>dark-mode</title><path d="M2.17,6A4.7,4.7,0,0,1,4.22,2.1.4.4,0,0,1,4.54,2c.08,0,.11.21.11.31A4.73,4.73,0,0,0,9.74,7.39,9.77,9.77,0,0,0,11,7.11c.1,0,.26-.05.31,0a.37.37,0,0,1,0,.31A4.55,4.55,0,0,1,7.76,10.6a4.69,4.69,0,0,1-5.54-4A4.46,4.46,0,0,1,2.17,6Z"/></svg>`;
+
+const svgLight = `<svg class="kitty__mode light" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 13"><circle cx="6.5" cy="6.5" r="2.5"/><rect x="1.5" y="5.5" width="1" height="2" rx="0.41" ry="0.41" transform="translate(8.5 4.5) rotate(90)"/><rect x="3.11" y="8.39" width="1" height="2" rx="0.41" ry="0.41" transform="translate(7.7 0.2) rotate(45)"/><rect x="6" y="10" width="1" height="2" rx="0.41" ry="0.41"/><rect x="8.89" y="8.39" width="1" height="2" rx="0.41" ry="0.41" transform="translate(-3.89 9.39) rotate(-45)"/><rect x="10.5" y="5.5" width="1" height="2" rx="0.41" ry="0.41" transform="translate(4.5 17.5) rotate(-90)"/><rect x="8.89" y="2.61" width="1" height="2" rx="0.41" ry="0.41" transform="translate(13.47 12.8) rotate(-135)"/><rect x="6" y="1" width="1" height="2" rx="0.41" ry="0.41" transform="translate(13 4) rotate(180)"/><rect x="3.11" y="2.61" width="1" height="2" rx="0.41" ry="0.41" transform="translate(8.72 3.61) rotate(135)"/></svg>`; 
+
+
+function DarkToggle(props) {
+  const darkness_activated = props.darkness_activated;
+  if (darkness_activated) {
+      if (localStorage.getItem('mode') == 'dark') {
+        return (<li><InlineSVG className="kitty__mode dark" src={svgDark} /></li>)
+      } else {
+        return (<li><InlineSVG className="kitty__mode light" src={svgLight} /></li>)
+      }
+  }
+  return "";
+}
+
+
 export class Navbar extends Component {
   render() {
     return (
@@ -35,6 +63,8 @@ export class Navbar extends Component {
         </div>
         <div>
           <ul className="nav__links">
+        
+            <DarkToggle darkness_activated={localStorage.getItem('dark_activated') == '1' ? true : false} />
             <li>
               <NavLink  className="smalls nav__link" to="/work">Work</NavLink>
             </li>

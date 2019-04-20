@@ -63,7 +63,7 @@ export default class Work extends Component {
               <div className="col-md-7 col-lg-6 offset-lg-1">
       
                     <h2>User Profiles</h2>
-                    <p>We were able to gather quite a lot of insights on our users, both through customer interviews and though researching the greater e-commerce online community. The e-commerce community has quite a prolific online presence and I was able to find a lot of detailed content where they talked about their experience in general and, if they used it, their experience with Clipping Magic. Here’s a summary of what we found. </p>
+                    <p>We were able to gather quite a lot of insights on our users, both through customer interviews and though researching the greater e-commerce online community. The e-commerce community has quite a prolific online presence and I was able to find a lot of detailed content where they talked about their experience in general and, if they used it, their experience with Clipping Magic. Here’s a summary of what was found. </p>
 
               </div>
             </div>

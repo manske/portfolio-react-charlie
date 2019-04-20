@@ -5,8 +5,8 @@
       <author>Blender User</author>
       <authoring_tool>Blender 2.80.43 commit date:2019-01-30, commit time:21:30, hash:da1da3053d75</authoring_tool>
     </contributor>
-    <created>2019-03-21T21:25:46</created>
-    <modified>2019-03-21T21:25:46</modified>
+    <created>2019-04-19T16:33:36</created>
+    <modified>2019-04-19T16:33:36</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
@@ -922,7 +922,7 @@
           </bind_material>
         </instance_geometry>
       </node>
-      <node id="deadbeef_kittygirl_008" name="deadbeef.kittygirl.008" type="NODE">
+      <node id="deadbeef_010" name="deadbeef.010" type="NODE">
         <matrix sid="transform">1.343675 0 0 -3.76847 0 1.343675 0 -2.808663 0 0 1.343675 -1.420917 0 0 0 1</matrix>
         <instance_geometry url="#Sphere_010-mesh" name="deadbeef.010">
           <bind_material>
@@ -932,7 +932,7 @@
           </bind_material>
         </instance_geometry>
       </node>
-      <node id="deadbeef_029" name="deadbeef.029" type="NODE">
+      <node id="deadbeef_kittygirl_008" name="deadbeef.kittygirl.008" type="NODE">
         <matrix sid="transform">1.343675 0 0 2.167645 0 1.343675 0 -1.486634 0 0 1.343675 -0.4064839 0 0 0 1</matrix>
         <instance_geometry url="#Sphere_008-mesh" name="deadbeef.kittygirl.008">
           <bind_material>
