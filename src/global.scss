@@ -375,7 +375,11 @@ IMG, VIDEO {
 	z-index: -99;
 	position: absolute;
 	background: #efefef;
-	background: radial-gradient(circle, rgba(241,241,241,1) 0%, rgba(240,240,240,1) 100%);
+    background: radial-gradient(circle, rgba(241,241,241,1) 0%, rgba(240,240,240,1) 100%);
+    #porticles {
+        height: 100%;
+        width: 100%;
+    }
 }
 
 
@@ -469,7 +473,7 @@ IMG, VIDEO {
 //=======================================================
 
 .nav__container {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;

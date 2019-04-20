@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import * as THREE from 'three';
 import * as Ammo from 'ammo.js';
-import './scripts/collabaloader.js';
+const ColladaLoader = require('three-collada-loader');
+//import './scripts/collabaloader.js';
 let _scene = '//s3.us-east-2.amazonaws.com/port-echo-manske/site_echo-alt-alt.dae';
 
 
@@ -185,14 +186,12 @@ class Balls extends Component{
             balls.initPhysics();
 
 		//ADD BALLS
-		balls.loader = new THREE.ColladaLoader()
+		balls.loader = new ColladaLoader()
 		balls.loader.load( _scene, function colladaReady( collada ) {
 
                 
                 var model = collada.scene;
-                var model_geometry = collada.scene.children[ 0 ].geometry;
-                var model_material = new THREE.PointsMaterial( { color: 0x888888 } );
-
+    
                 console.log(collada);
 
                 for (var i = 0; i < model.children.length; i++) {
@@ -211,7 +210,8 @@ class Balls extends Component{
 
                     if (model.children[i].name.indexOf("foobert") != -1) {
                         let n = model.children[i];
-                        balls.hello_geo = new THREE.Geometry().fromBufferGeometry( n.geometry);
+                        let child = n.children[0];
+                        balls.hello_geo = child.geometry //new THREE.Geometry().fromBufferGeometry( n.geometry);
                         balls.hello_geo.computeVertexNormals();
                     }
 
@@ -222,7 +222,7 @@ class Balls extends Component{
 
                 for (var i = 0; i < balls.spheres.length; i++) {
                     
-                    balls.spheres[i].material = balls.lightMaterial;
+                    balls.spheres[i].mesh.material = balls.lightMaterial;
 
                     var shape = new Ammo.btSphereShape(1);
 

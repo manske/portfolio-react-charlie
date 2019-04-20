@@ -18,17 +18,6 @@ import Nuvectra from './components/views/work_views/nuvectra.jsx'
 import Recompressor from './components/views/work_views/recompressor.jsx' 
 
 
-class SetMode extends Component {
-  render() {
-    return(
-      <div>
-        {localStorage.setItem('mode', (localStorage.getItem('mode')) === 'dark' ? 'dark' : 'light') }
-        {localStorage.setItem('dark_activated', (localStorage.getItem('dark_activated')) === '1' ? '1' : '0') }
-        {this.props.children}
-      </div>
-    )
-  }
-}
 
 export default class App extends Component {
   constructor(props) {
@@ -107,8 +96,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <SetMode>
-        <div id="__mode" className={localStorage.getItem('mode') == 'dark' ? 'dark__mode' : ''}>
+        <div id="__mode">
 
           {/*<div className="loader loader--active">
             <div className="loader__icon">
@@ -132,7 +120,6 @@ export default class App extends Component {
           </div>
           <Footer></Footer>
         </div>
-      </SetMode>
     );
   }
 };

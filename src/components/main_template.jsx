@@ -39,20 +39,6 @@ const svgDark = `<svg class=" " data-name="Layer 1" xmlns="http://www.w3.org/200
 
 const svgLight = `<svg class="kitty__mode light" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 13"><circle cx="6.5" cy="6.5" r="2.5"/><rect x="1.5" y="5.5" width="1" height="2" rx="0.41" ry="0.41" transform="translate(8.5 4.5) rotate(90)"/><rect x="3.11" y="8.39" width="1" height="2" rx="0.41" ry="0.41" transform="translate(7.7 0.2) rotate(45)"/><rect x="6" y="10" width="1" height="2" rx="0.41" ry="0.41"/><rect x="8.89" y="8.39" width="1" height="2" rx="0.41" ry="0.41" transform="translate(-3.89 9.39) rotate(-45)"/><rect x="10.5" y="5.5" width="1" height="2" rx="0.41" ry="0.41" transform="translate(4.5 17.5) rotate(-90)"/><rect x="8.89" y="2.61" width="1" height="2" rx="0.41" ry="0.41" transform="translate(13.47 12.8) rotate(-135)"/><rect x="6" y="1" width="1" height="2" rx="0.41" ry="0.41" transform="translate(13 4) rotate(180)"/><rect x="3.11" y="2.61" width="1" height="2" rx="0.41" ry="0.41" transform="translate(8.72 3.61) rotate(135)"/></svg>`; 
 
-
-function DarkToggle(props) {
-  const darkness_activated = props.darkness_activated;
-  if (darkness_activated) {
-      if (localStorage.getItem('mode') == 'dark') {
-        return (<li><InlineSVG className="kitty__mode dark" src={svgDark} /></li>)
-      } else {
-        return (<li><InlineSVG className="kitty__mode light" src={svgLight} /></li>)
-      }
-  }
-  return "";
-}
-
-
 export class Navbar extends Component {
   render() {
     return (
@@ -63,8 +49,7 @@ export class Navbar extends Component {
         </div>
         <div>
           <ul className="nav__links">
-        
-            <DarkToggle darkness_activated={localStorage.getItem('dark_activated') == '1' ? true : false} />
+      
             <li>
               <NavLink  className="smalls nav__link" to="/work">Work</NavLink>
             </li>

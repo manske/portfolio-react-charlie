@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { browserHistory } from 'react-router-dom';
 import {MainTemplate, Navbar, ChunkyIndent} from "../main_template.jsx";
 import {WorkCardsMain} from "../work_template.jsx";
-import Balls from './../balls.jsx';
+//import Balls from './../balls';
 import GLOBALS from '../globals.js';
 
 export default class Home extends Component {
@@ -15,10 +15,10 @@ export default class Home extends Component {
     return (
       <MainTemplate name="home">
 
-          {/**/}<div id="hero">
+          {/*<div id="hero">
             <div className="hero__home__backdrop"></div>
             <Balls />
-          </div>
+          </div>*/}
 
           <p>
           </p>
